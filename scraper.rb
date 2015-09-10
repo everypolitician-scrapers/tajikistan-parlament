@@ -50,6 +50,7 @@ tj.each_with_index do |p_tj, i|
     name__tj: p_tj.first.sub(/^\d+\.\s*/,''),
     source: p_tj.last.to_s,
   }.merge(scrape_person(p_tj.last))
-  puts data
+  ScraperWiki.save_sqlite([:id], data)
+  puts data[:name]
 end
 
